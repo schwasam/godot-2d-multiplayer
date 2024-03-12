@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://kvjf0haqc28p"]
+[gd_scene load_steps=5 format=3 uid="uid://kvjf0haqc28p"]
 
 [ext_resource type="Texture2D" uid="uid://bja0wl8tcw71c" path="res://art/backgrounds/background_01.png" id="1_7k8oc"]
+[ext_resource type="Script" path="res://menu/menu.gd" id="1_rh1iw"]
 [ext_resource type="Texture2D" uid="uid://bujx43rcy5b85" path="res://art/backgrounds/background_02.png" id="2_t4hla"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_51io5"]
@@ -13,6 +14,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_rh1iw")
 
 [node name="BackgroundTrees" type="TextureRect" parent="."]
 layout_mode = 1
@@ -73,3 +75,7 @@ grow_vertical = 2
 label_settings = SubResource("LabelSettings_51io5")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[connection signal="pressed" from="HBoxContainer/HostButton" to="." method="_on_host_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/JoinButton" to="." method="_on_join_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
