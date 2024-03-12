@@ -1,0 +1,75 @@
+[gd_scene load_steps=4 format=3 uid="uid://kvjf0haqc28p"]
+
+[ext_resource type="Texture2D" uid="uid://bja0wl8tcw71c" path="res://art/backgrounds/background_01.png" id="1_7k8oc"]
+[ext_resource type="Texture2D" uid="uid://bujx43rcy5b85" path="res://art/backgrounds/background_02.png" id="2_t4hla"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_51io5"]
+font_size = 64
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BackgroundTrees" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_7k8oc")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="BackgroundHouses" type="TextureRect" parent="BackgroundTrees"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_t4hla")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 720.0
+offset_bottom = 60.0
+
+[node name="HostButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Host"
+
+[node name="JoinButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Join"
+
+[node name="StartButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Start"
+
+[node name="IPLineEdit" type="LineEdit" parent="HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+placeholder_text = "Enter IP Address..."
+
+[node name="StatusLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_51io5")
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,12 +1,12 @@
 [gd_scene load_steps=9 format=3 uid="uid://cnp584qcnv3tj"]
 
-[ext_resource type="Texture2D" uid="uid://chwbcf7n2ajtp" path="res://art/platforms/Platformer_spritesheet.png" id="1_84dxo"]
-[ext_resource type="PackedScene" uid="uid://dgmbwyk1c82yt" path="res://player/player.tscn" id="2_2gnay"]
-[ext_resource type="Texture2D" uid="uid://bja0wl8tcw71c" path="res://art/backgrounds/background_01.png" id="2_f7xup"]
-[ext_resource type="Texture2D" uid="uid://bujx43rcy5b85" path="res://art/backgrounds/background_02.png" id="3_qt2i7"]
+[ext_resource type="Texture2D" uid="uid://chwbcf7n2ajtp" path="res://art/platforms/Platformer_spritesheet.png" id="1_drxf6"]
+[ext_resource type="Texture2D" uid="uid://bja0wl8tcw71c" path="res://art/backgrounds/background_01.png" id="2_oi8e6"]
+[ext_resource type="Texture2D" uid="uid://bujx43rcy5b85" path="res://art/backgrounds/background_02.png" id="3_yv7l0"]
+[ext_resource type="PackedScene" uid="uid://dgmbwyk1c82yt" path="res://player/player.tscn" id="4_20lng"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_68gnc"]
-texture = ExtResource("1_84dxo")
+texture = ExtResource("1_drxf6")
 texture_region_size = Vector2i(128, 128)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -103,7 +103,7 @@ motion_scale = Vector2(0.25, 1)
 motion_mirroring = Vector2(1334, 0)
 
 [node name="BackgroundTrees" type="Sprite2D" parent="----- Environment -----/ParallaxBackground/ParallaxTrees"]
-texture = ExtResource("2_f7xup")
+texture = ExtResource("2_oi8e6")
 centered = false
 
 [node name="ParallaxHouses" type="ParallaxLayer" parent="----- Environment -----/ParallaxBackground"]
@@ -111,11 +111,11 @@ motion_scale = Vector2(0.5, 1)
 motion_mirroring = Vector2(1334, 0)
 
 [node name="BackgroundHouses" type="Sprite2D" parent="----- Environment -----/ParallaxBackground/ParallaxHouses"]
-texture = ExtResource("3_qt2i7")
+texture = ExtResource("3_yv7l0")
 centered = false
 
 [node name="----- Players -----" type="Node" parent="."]
 
-[node name="Player" parent="----- Players -----" instance=ExtResource("2_2gnay")]
+[node name="Player" parent="----- Players -----" instance=ExtResource("4_20lng")]
 position = Vector2(624, 152)
 max_jumps = 3
