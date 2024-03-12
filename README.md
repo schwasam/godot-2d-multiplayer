@@ -1,2 +1,2 @@
 # godot-2d-multiplayer
-Larning Godot: 2D Multiplayer
+Learning Godot: 2D Multiplayer
