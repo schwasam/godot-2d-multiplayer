@@ -31,21 +31,38 @@ func create_game():
 	player_connected.emit(1, player_info)
 	
 	
+func join_game(address):
+	var peer = ENetMultiplayerPeer.new()
+	var error = peer.create_client(address, PORT)
+	if error:
+		return error
+	multiplayer.multiplayer_peer = peer
+	
+	
 func _on_player_connected(id):
-	pass
-
+	_register_player.rpc_id(id, player_info)
+	
+@rpc("any_peer", "reliable")
+func _register_player(new_player_info):
+	var new_player_id = multiplayer.get_remote_sender_id()
+	players[new_player_id] = new_player_info
+	player_connected.emit(new_player_id, new_player_info)
 
 func _on_player_disconnected(id):
-	pass
+	players.erase(id)
+	player_disconnected.emit(id)
 	
 	
 func _on_connected_to_server():
-	pass
-	
+	var peer_id = multiplayer.get_unique_id()
+	players[peer_id] = player_info
+	player_connected.emit(peer_id, player_info)
 	
 func _on_connection_failed():
-	pass
+	multiplayer.multiplayer_peer = null
 	
 	
 func _on_server_disconnected():
-	pass
+	multiplayer.multiplayer_peer = null
+	players.clear()
+	server_disconnected.emit()

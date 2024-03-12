@@ -7,7 +7,7 @@
 [sub_resource type="LabelSettings" id="LabelSettings_51io5"]
 font_size = 64
 
-[node name="Menu" type="Control"]
+[node name="Menu" type="Control" node_paths=PackedStringArray("ip_line_edit", "status_label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,6 +15,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_rh1iw")
+ip_line_edit = NodePath("HBoxContainer/IPLineEdit")
+status_label = NodePath("StatusLabel")
 
 [node name="BackgroundTrees" type="TextureRect" parent="."]
 layout_mode = 1
@@ -63,6 +65,7 @@ text = "Start"
 [node name="IPLineEdit" type="LineEdit" parent="HBoxContainer"]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
+text = "127.0.0.1"
 placeholder_text = "Enter IP Address..."
 
 [node name="StatusLabel" type="Label" parent="."]
