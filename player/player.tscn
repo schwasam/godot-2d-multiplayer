@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://dgmbwyk1c82yt"]
+[gd_scene load_steps=73 format=3 uid="uid://dgmbwyk1c82yt"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_au4p0"]
 [ext_resource type="Texture2D" uid="uid://cln1ubxiy43oh" path="res://art/characters/elf/double_jump_start/0_Dark_Elves_Double Jump_000.png" id="1_ub12j"]
@@ -303,6 +303,9 @@ animations = [{
 "speed": 24.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xdxy6"]
+size = Vector2(200, 400)
+
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_swpgw"]
 properties/0/path = NodePath(".:position")
 properties/0/spawn = true
@@ -334,7 +337,17 @@ animation = &"walk"
 autoplay = "idle"
 frame_progress = 0.0566005
 
+[node name="InteractionHandler" type="Area2D" parent="AnimatedSprite2D"]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/InteractionHandler"]
+position = Vector2(250, 20)
+shape = SubResource("RectangleShape2D_xdxy6")
+
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_swpgw")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="area_entered" from="AnimatedSprite2D/InteractionHandler" to="." method="_on_interaction_handler_area_entered"]
+[connection signal="area_exited" from="AnimatedSprite2D/InteractionHandler" to="." method="_on_interaction_handler_area_exited"]
