@@ -23,6 +23,10 @@ Lobby="*res://lobby.gd"
 
 window/size/resizable=false
 
+[dotnet]
+
+project/assembly_name="Godot Multiplayer"
+
 [input]
 
 move_right={
