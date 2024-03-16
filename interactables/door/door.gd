@@ -1,9 +1,9 @@
 extends Node2D
 
+@export var is_open = false
 @export var door_open: Sprite2D
 @export var door_closed:Sprite2D
 @export var collider: CollisionShape2D
-@export var is_open = false
 
 
 func activate(state):
