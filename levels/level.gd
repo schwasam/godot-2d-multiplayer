@@ -16,7 +16,6 @@ func _enter_tree() -> void:
 
 
 func _ready() -> void:
-	# skip if not server
 	if not multiplayer.is_server():
 		return
 		
@@ -33,7 +32,6 @@ func _exit_tree() -> void:
 	if multiplayer.multiplayer_peer == null:
 		return
 	
-	# skip if not server
 	if not multiplayer.is_server():
 		return
 
@@ -41,6 +39,7 @@ func _exit_tree() -> void:
 
 
 func add_player(id):
+	# player gets automatically added to node defined in PlayerSpawner.spawn_path
 	player_spawner.spawn(id)
 	
 	
@@ -54,7 +53,7 @@ func spawn_player(id):
 	var player_instance = player_scene.instantiate()
 	player_instance.position = get_spawn_point()
 	player_instance.name = str(id)
-	players_container.add_child(player_instance)
+	return player_instance
 	
 	
 func get_spawn_point():
