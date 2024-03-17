@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://cuspa1xl2l5nd"]
+
+[ext_resource type="Texture2D" uid="uid://cu3ucp0ocryit" path="res://art/objects/Pillar_01.png" id="1_ce25a"]
+[ext_resource type="Script" path="res://interactables/bridge/bridge.gd" id="1_kj7l8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ygcdk"]
+size = Vector2(319, 38)
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_xsc2j"]
+properties/0/path = NodePath(".:locked_open")
+properties/0/spawn = true
+properties/0/replication_mode = 2
+
+[node name="Bridge" type="Node2D" node_paths=PackedStringArray("collider", "sprite")]
+script = ExtResource("1_kj7l8")
+collider = NodePath("StaticBody2D/CollisionShape2D")
+sprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("1_ce25a")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_ygcdk")
+disabled = true
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_xsc2j")
+
+[connection signal="delta_synchronized" from="MultiplayerSynchronizer" to="." method="_on_multiplayer_synchronizer_delta_synchronized"]
