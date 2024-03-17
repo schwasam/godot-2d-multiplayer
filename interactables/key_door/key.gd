@@ -7,6 +7,8 @@ var following_body
 
 
 func _process(delta: float) -> void:
+	if multiplayer.multiplayer_peer == null:
+		return
 	if not multiplayer.is_server():
 		return
 		

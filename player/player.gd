@@ -8,7 +8,7 @@ extends CharacterBody2D
 @export var movement_speed = 300
 @export var gravity = 30
 @export var jump_strength = 600
-@export var max_jumps = 1
+@export var max_jumps = 2
 
 @onready var initial_sprite_scale = player_sprite.scale
 

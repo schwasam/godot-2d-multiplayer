@@ -323,7 +323,6 @@ collision_mask = 3
 script = ExtResource("1_au4p0")
 player_camera = ExtResource("2_rqojt")
 player_sprite = NodePath("AnimatedSprite2D")
-max_jumps = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -28)
